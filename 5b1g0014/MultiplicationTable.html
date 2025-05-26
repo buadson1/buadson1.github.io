@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>九九乘法表</title>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #333;
+      padding: 15px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #ffd700;
+    }
+
+    .container {
+      margin-top: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label, input {
+      font-size: 18px;
+      margin: 10px;
+    }
+
+    input[type="number"] {
+      padding: 5px 10px;
+      width: 100px;
+    }
+
+    input[type="button"] {
+      padding: 6px 12px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      background-color: #f9f9f9;
+      font-size: 14px;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #eaf6ea;
+    }
+  </style>
+
+  <script>
+    function myFunction() {
+      var n = document.getElementById('numberInput').value;
+      if (n === '' || n <= 0) {
+        alert("請輸入正整數！");
+        return;
+      }
+
+      var str = "<table>";
+
+      for (let i = 1; i <= n; i++) {
+        str += "<tr>";
+        for (let j = 1; j <= n; j++) {
+          str += `<td>${i} × ${j} = ${i * j}</td>`;
+        }
+        str += "</tr>";
+      }
+
+      str += "</table>";
+      document.getElementById("myId").innerHTML = str;
+    }
+  </script>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">首頁</a>
+    <a href="about.html">關於我</a>
+    <a href="research.html">興趣</a>
+    <a href="homework.html">作業</a>
+  </nav>
+
+  <div class="container">
+    <h1>N × N 九九乘法表</h1>
+    <label for="numberInput">請輸入一個數值：</label>
+    <input type="number" id="numberInput" placeholder="例如 9" min="1" />
+    <input type="button" value="產生" onclick="myFunction()" />
+    <div id="myId"></div>
+  </div>
+
+</body>
+</html>
