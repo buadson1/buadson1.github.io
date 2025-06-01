@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>黃秉鋒的個人網頁</title>
+  <style>
+    nav {
+      background-color: darkblue;
+      text-align: center; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 10px;
+      border: 1px solid gold;
+      border-radius: 8px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: gold;
+      color: darkblue;
+    }
+
+    p {
+      color: #555;
+    }
+
+    h1 {
+      color: #002fff;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slideshow img {
+      object-fit: cover;
+      display: none; 
+      position: absolute; 
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease-in-out; 
+    }
+
+    .slideshow img.active {
+      display: block;
+      opacity: 1;
+      z-index: 1;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">首頁</a>
+    <a href="about.html">關於我</a>
+    <a href="research.html">興趣</a>
+    <a href="homework.html">作業</a>
+  </nav>
+
+  <div class="container">
+    <h1>黃秉鋒</h1>
+    <p>17 歲</p>
+    <p>南臺科技大學 五專三年級</p>
+    <p>Javascript 程式設計課程</p>
+  
+
+  <div class="slideshow">
+  <img src="img/w3html.png" class="active">
+  <img src="img/w3css.png">
+  <img src="img/w3js.png">
+  </div>
+</div>
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.slideshow img');
+  const totalSlides = slides.length;
+
+  function showNextSlide() {
+    // 移除當前 active 的圖片
+    slides[currentIndex].classList.remove('active');
+
+    // 下一張
+    currentIndex = (currentIndex + 1) % totalSlides;
+
+    // 加上 active 類別讓它顯示
+    slides[currentIndex].classList.add('active');
+  }
+
+  // 每 3 秒切換一張圖
+  setInterval(showNextSlide, 3000);
+</script>
+
+</body>
+</html>
